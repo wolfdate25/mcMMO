@@ -42,7 +42,7 @@ public class SkillXpGain implements Delayed {
     @Override
     public int compareTo(Delayed other) {
         if (other instanceof SkillXpGain) {
-            // Use more efficent method if possible (private fields)
+            // Use more efficient method if possible (private fields)
             return this.compareTo((SkillXpGain) other);
         }
         return (int) (getDelay(TimeUnit.MILLISECONDS) - other.getDelay(TimeUnit.MILLISECONDS));
