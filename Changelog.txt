@@ -10,6 +10,7 @@ Key:
 Version 1.5.01-dev
  = Fixed bug where the Updater was running on the main thread.
  ! Vanished players no longer get hit by AoE effects
+ ! Scoreboard tips are only shown a couple of times to the player, instead of once per login session
 
 Version 1.5.00
  + Added Podzol & Red Sand to Excavation
