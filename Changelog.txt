@@ -8,6 +8,7 @@ Key:
   - Removal
 
 Version 1.5.01-dev
+ = Fixed bug where items would get deleted when in Berserk with a full inventory
 
 Version 1.5.00
  + Added Podzol & Red Sand to Excavation
