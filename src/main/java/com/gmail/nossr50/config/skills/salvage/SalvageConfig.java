@@ -1,4 +1,4 @@
-package com.gmail.nossr50.config.salvage;
+package com.gmail.nossr50.config.skills.salvage;
 
 import java.util.ArrayList;
 import java.util.List;

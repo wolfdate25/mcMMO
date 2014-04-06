@@ -18,7 +18,7 @@ import com.gmail.nossr50.config.mods.ArmorConfigManager;
 import com.gmail.nossr50.config.mods.BlockConfigManager;
 import com.gmail.nossr50.config.mods.EntityConfigManager;
 import com.gmail.nossr50.config.mods.ToolConfigManager;
-import com.gmail.nossr50.config.salvage.SalvageConfigManager;
+import com.gmail.nossr50.config.skills.salvage.SalvageConfigManager;
 import com.gmail.nossr50.config.skills.alchemy.PotionConfig;
 import com.gmail.nossr50.config.skills.repair.RepairConfigManager;
 import com.gmail.nossr50.config.treasure.TreasureConfig;
