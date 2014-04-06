@@ -1,8 +1,8 @@
-package com.gmail.nossr50.datatypes;
+package com.gmail.nossr50.datatypes.skills;
 
 import org.bukkit.Material;
 
-public enum RepairAndSalvageMaterialType {
+public enum MaterialType {
     STRING,
     LEATHER,
     WOOD,

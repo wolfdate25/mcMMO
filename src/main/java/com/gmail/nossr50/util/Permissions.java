@@ -9,10 +9,10 @@ import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.PluginManager;
 
+import com.gmail.nossr50.datatypes.skills.ItemType;
+import com.gmail.nossr50.datatypes.skills.MaterialType;
 import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.commands.party.PartySubcommandType;
-import com.gmail.nossr50.datatypes.RepairAndSalvageItemType;
-import com.gmail.nossr50.datatypes.RepairAndSalvageMaterialType;
 import com.gmail.nossr50.datatypes.skills.SecondaryAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 
@@ -164,15 +164,15 @@ public final class Permissions {
     public static boolean superBreaker(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.mining.superbreaker"); }
 
     /* REPAIR */
-    public static boolean repairItemType(Permissible permissible, RepairAndSalvageItemType repairItemType) { return permissible.hasPermission("mcmmo.ability.repair." + repairItemType.toString().toLowerCase() + "repair"); }
-    public static boolean repairMaterialType(Permissible permissible, RepairAndSalvageMaterialType repairMaterialType) { return permissible.hasPermission("mcmmo.ability.repair." + repairMaterialType.toString().toLowerCase() + "repair"); }
+    public static boolean repairItemType(Permissible permissible, ItemType repairItemType) { return permissible.hasPermission("mcmmo.ability.repair." + repairItemType.toString().toLowerCase() + "repair"); }
+    public static boolean repairMaterialType(Permissible permissible, MaterialType repairMaterialType) { return permissible.hasPermission("mcmmo.ability.repair." + repairMaterialType.toString().toLowerCase() + "repair"); }
 
     /* SALVAGE */
     public static boolean advancedSalvage(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.salvage.advancedsalvage"); }
     public static boolean arcaneSalvage(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.salvage.arcanesalvage"); }
 
-    public static boolean salvageItemType(Permissible permissible, RepairAndSalvageItemType salvageItemType) { return permissible.hasPermission("mcmmo.ability.salvage." + salvageItemType.toString().toLowerCase() + "salvage"); }
-    public static boolean salvageMaterialType(Permissible permissible, RepairAndSalvageMaterialType salvageMaterialType) { return permissible.hasPermission("mcmmo.ability.salvage." + salvageMaterialType.toString().toLowerCase() + "salvage"); }
+    public static boolean salvageItemType(Permissible permissible, ItemType salvageItemType) { return permissible.hasPermission("mcmmo.ability.salvage." + salvageItemType.toString().toLowerCase() + "salvage"); }
+    public static boolean salvageMaterialType(Permissible permissible, MaterialType salvageMaterialType) { return permissible.hasPermission("mcmmo.ability.salvage." + salvageMaterialType.toString().toLowerCase() + "salvage"); }
 
     /* SMELTING */
     public static boolean fluxMining(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.smelting.fluxmining"); }

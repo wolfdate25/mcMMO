@@ -9,8 +9,8 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.nossr50.config.ConfigLoader;
-import com.gmail.nossr50.datatypes.RepairAndSalvageItemType;
-import com.gmail.nossr50.datatypes.RepairAndSalvageMaterialType;
+import com.gmail.nossr50.datatypes.skills.ItemType;
+import com.gmail.nossr50.datatypes.skills.MaterialType;
 import com.gmail.nossr50.skills.repair.repairables.Repairable;
 import com.gmail.nossr50.skills.repair.repairables.RepairableFactory;
 import com.gmail.nossr50.util.ItemUtils;
@@ -48,37 +48,37 @@ public class RepairConfig extends ConfigLoader {
             }
 
             // Repair Material Type
-            RepairAndSalvageMaterialType repairMaterialType = RepairAndSalvageMaterialType.OTHER;
+            MaterialType repairMaterialType = MaterialType.OTHER;
             String repairMaterialTypeString = config.getString("Repairables." + key + ".MaterialType", "OTHER");
 
             if (!config.contains("Repairables." + key + ".MaterialType") && itemMaterial != null) {
                 ItemStack repairItem = new ItemStack(itemMaterial);
 
                 if (ItemUtils.isWoodTool(repairItem)) {
-                    repairMaterialType = RepairAndSalvageMaterialType.WOOD;
+                    repairMaterialType = MaterialType.WOOD;
                 }
                 else if (ItemUtils.isStoneTool(repairItem)) {
-                    repairMaterialType = RepairAndSalvageMaterialType.STONE;
+                    repairMaterialType = MaterialType.STONE;
                 }
                 else if (ItemUtils.isStringTool(repairItem)) {
-                    repairMaterialType = RepairAndSalvageMaterialType.STRING;
+                    repairMaterialType = MaterialType.STRING;
                 }
                 else if (ItemUtils.isLeatherArmor(repairItem)) {
-                    repairMaterialType = RepairAndSalvageMaterialType.LEATHER;
+                    repairMaterialType = MaterialType.LEATHER;
                 }
                 else if (ItemUtils.isIronArmor(repairItem) || ItemUtils.isIronTool(repairItem)) {
-                    repairMaterialType = RepairAndSalvageMaterialType.IRON;
+                    repairMaterialType = MaterialType.IRON;
                 }
                 else if (ItemUtils.isGoldArmor(repairItem) || ItemUtils.isGoldTool(repairItem)) {
-                    repairMaterialType = RepairAndSalvageMaterialType.GOLD;
+                    repairMaterialType = MaterialType.GOLD;
                 }
                 else if (ItemUtils.isDiamondArmor(repairItem) || ItemUtils.isDiamondTool(repairItem)) {
-                    repairMaterialType = RepairAndSalvageMaterialType.DIAMOND;
+                    repairMaterialType = MaterialType.DIAMOND;
                 }
             }
             else {
                 try {
-                    repairMaterialType = RepairAndSalvageMaterialType.valueOf(repairMaterialTypeString);
+                    repairMaterialType = MaterialType.valueOf(repairMaterialTypeString);
                 }
                 catch (IllegalArgumentException ex) {
                     reason.add(key + " has an invalid MaterialType of " + repairMaterialTypeString);
@@ -105,22 +105,22 @@ public class RepairConfig extends ConfigLoader {
             }
 
             // Item Type
-            RepairAndSalvageItemType repairItemType = RepairAndSalvageItemType.OTHER;
+            ItemType repairItemType = ItemType.OTHER;
             String repairItemTypeString = config.getString("Repairables." + key + ".ItemType", "OTHER");
 
             if (!config.contains("Repairables." + key + ".ItemType") && itemMaterial != null) {
                 ItemStack repairItem = new ItemStack(itemMaterial);
 
                 if (ItemUtils.isMinecraftTool(repairItem)) {
-                    repairItemType = RepairAndSalvageItemType.TOOL;
+                    repairItemType = ItemType.TOOL;
                 }
                 else if (ItemUtils.isArmor(repairItem)) {
-                    repairItemType = RepairAndSalvageItemType.ARMOR;
+                    repairItemType = ItemType.ARMOR;
                 }
             }
             else {
                 try {
-                    repairItemType = RepairAndSalvageItemType.valueOf(repairItemTypeString);
+                    repairItemType = ItemType.valueOf(repairItemTypeString);
                 }
                 catch (IllegalArgumentException ex) {
                     reason.add(key + " has an invalid ItemType of " + repairItemTypeString);

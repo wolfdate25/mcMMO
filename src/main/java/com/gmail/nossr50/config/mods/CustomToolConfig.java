@@ -10,8 +10,8 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.nossr50.config.ConfigLoader;
-import com.gmail.nossr50.datatypes.RepairAndSalvageItemType;
-import com.gmail.nossr50.datatypes.RepairAndSalvageMaterialType;
+import com.gmail.nossr50.datatypes.skills.ItemType;
+import com.gmail.nossr50.datatypes.skills.MaterialType;
 import com.gmail.nossr50.datatypes.mods.CustomTool;
 import com.gmail.nossr50.skills.repair.repairables.Repairable;
 import com.gmail.nossr50.skills.repair.repairables.RepairableFactory;
@@ -99,7 +99,7 @@ public class CustomToolConfig extends ConfigLoader {
                     durability = (short) config.getInt(toolType + "." + toolName + ".Durability", 60);
                 }
 
-                repairables.add(RepairableFactory.getRepairable(toolMaterial, repairMaterial, repairData, 0, repairQuantity, durability, RepairAndSalvageItemType.TOOL, RepairAndSalvageMaterialType.OTHER, 1.0));
+                repairables.add(RepairableFactory.getRepairable(toolMaterial, repairMaterial, repairData, 0, repairQuantity, durability, ItemType.TOOL, MaterialType.OTHER, 1.0));
             }
 
             double multiplier = config.getDouble(toolType + "." + toolName + ".XP_Modifier", 1.0);

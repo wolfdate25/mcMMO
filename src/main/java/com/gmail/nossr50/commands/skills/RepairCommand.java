@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
-import com.gmail.nossr50.datatypes.RepairAndSalvageMaterialType;
+import com.gmail.nossr50.datatypes.skills.MaterialType;
 import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.datatypes.skills.SecondaryAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
@@ -77,13 +77,13 @@ public class RepairCommand extends SkillCommand {
         canSuperRepair = Permissions.secondaryAbilityEnabled(player, SecondaryAbility.SUPER_REPAIR);
         canMasterRepair = Permissions.secondaryAbilityEnabled(player, SecondaryAbility.REPAIR_MASTERY);
         canArcaneForge = Permissions.secondaryAbilityEnabled(player, SecondaryAbility.ARCANE_FORGING);
-        canRepairDiamond = Permissions.repairMaterialType(player, RepairAndSalvageMaterialType.DIAMOND);
-        canRepairGold = Permissions.repairMaterialType(player, RepairAndSalvageMaterialType.GOLD);
-        canRepairIron = Permissions.repairMaterialType(player, RepairAndSalvageMaterialType.IRON);
-        canRepairStone = Permissions.repairMaterialType(player, RepairAndSalvageMaterialType.STONE);
-        canRepairString = Permissions.repairMaterialType(player, RepairAndSalvageMaterialType.STRING);
-        canRepairLeather = Permissions.repairMaterialType(player, RepairAndSalvageMaterialType.LEATHER);
-        canRepairWood = Permissions.repairMaterialType(player, RepairAndSalvageMaterialType.WOOD);
+        canRepairDiamond = Permissions.repairMaterialType(player, MaterialType.DIAMOND);
+        canRepairGold = Permissions.repairMaterialType(player, MaterialType.GOLD);
+        canRepairIron = Permissions.repairMaterialType(player, MaterialType.IRON);
+        canRepairStone = Permissions.repairMaterialType(player, MaterialType.STONE);
+        canRepairString = Permissions.repairMaterialType(player, MaterialType.STRING);
+        canRepairLeather = Permissions.repairMaterialType(player, MaterialType.LEATHER);
+        canRepairWood = Permissions.repairMaterialType(player, MaterialType.WOOD);
         arcaneBypass = Permissions.arcaneBypass(player);
     }
 

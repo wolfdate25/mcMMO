@@ -10,7 +10,7 @@ import org.bukkit.material.LongGrass;
 import org.bukkit.material.MaterialData;
 
 import com.gmail.nossr50.config.AutoUpdateConfigLoader;
-import com.gmail.nossr50.datatypes.RepairAndSalvageMaterialType;
+import com.gmail.nossr50.datatypes.skills.MaterialType;
 import com.gmail.nossr50.datatypes.experience.FormulaType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.util.StringUtils;
@@ -308,7 +308,7 @@ public class ExperienceConfig extends AutoUpdateConfigLoader {
 
     /* Repair */
     public double getRepairXPBase() { return config.getDouble("Experience.Repair.Base", 1000.0); }
-    public double getRepairXP(RepairAndSalvageMaterialType repairMaterialType) { return config.getDouble("Experience.Repair." + StringUtils.getCapitalized(repairMaterialType.toString())); }
+    public double getRepairXP(MaterialType repairMaterialType) { return config.getDouble("Experience.Repair." + StringUtils.getCapitalized(repairMaterialType.toString())); }
 
     /* Taming */
     public int getTamingXPHorse() { return config.getInt("Experience.Taming.Animal_Taming.Horse", 1000); }

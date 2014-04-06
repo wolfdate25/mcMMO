@@ -9,8 +9,8 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.nossr50.config.ConfigLoader;
-import com.gmail.nossr50.datatypes.RepairAndSalvageItemType;
-import com.gmail.nossr50.datatypes.RepairAndSalvageMaterialType;
+import com.gmail.nossr50.datatypes.skills.ItemType;
+import com.gmail.nossr50.datatypes.skills.MaterialType;
 import com.gmail.nossr50.skills.salvage.salvageables.Salvageable;
 import com.gmail.nossr50.skills.salvage.salvageables.SalvageableFactory;
 import com.gmail.nossr50.util.ItemUtils;
@@ -43,37 +43,37 @@ public class SalvageConfig extends ConfigLoader {
             }
 
             // Repair Material Type
-            RepairAndSalvageMaterialType salvageMaterialType = RepairAndSalvageMaterialType.OTHER;
+            MaterialType salvageMaterialType = MaterialType.OTHER;
             String repairMaterialTypeString = config.getString("Salvageables." + key + ".MaterialType", "OTHER");
 
             if (!config.contains("Salvageables." + key + ".MaterialType") && itemMaterial != null) {
                 ItemStack repairItem = new ItemStack(itemMaterial);
 
                 if (ItemUtils.isWoodTool(repairItem)) {
-                    salvageMaterialType = RepairAndSalvageMaterialType.WOOD;
+                    salvageMaterialType = MaterialType.WOOD;
                 }
                 else if (ItemUtils.isStoneTool(repairItem)) {
-                    salvageMaterialType = RepairAndSalvageMaterialType.STONE;
+                    salvageMaterialType = MaterialType.STONE;
                 }
                 else if (ItemUtils.isStringTool(repairItem)) {
-                    salvageMaterialType = RepairAndSalvageMaterialType.STRING;
+                    salvageMaterialType = MaterialType.STRING;
                 }
                 else if (ItemUtils.isLeatherArmor(repairItem)) {
-                    salvageMaterialType = RepairAndSalvageMaterialType.LEATHER;
+                    salvageMaterialType = MaterialType.LEATHER;
                 }
                 else if (ItemUtils.isIronArmor(repairItem) || ItemUtils.isIronTool(repairItem)) {
-                    salvageMaterialType = RepairAndSalvageMaterialType.IRON;
+                    salvageMaterialType = MaterialType.IRON;
                 }
                 else if (ItemUtils.isGoldArmor(repairItem) || ItemUtils.isGoldTool(repairItem)) {
-                    salvageMaterialType = RepairAndSalvageMaterialType.GOLD;
+                    salvageMaterialType = MaterialType.GOLD;
                 }
                 else if (ItemUtils.isDiamondArmor(repairItem) || ItemUtils.isDiamondTool(repairItem)) {
-                    salvageMaterialType = RepairAndSalvageMaterialType.DIAMOND;
+                    salvageMaterialType = MaterialType.DIAMOND;
                 }
             }
             else {
                 try {
-                    salvageMaterialType = RepairAndSalvageMaterialType.valueOf(repairMaterialTypeString);
+                    salvageMaterialType = MaterialType.valueOf(repairMaterialTypeString);
                 }
                 catch (IllegalArgumentException ex) {
                     reason.add(key + " has an invalid MaterialType of " + repairMaterialTypeString);
@@ -96,22 +96,22 @@ public class SalvageConfig extends ConfigLoader {
             }
 
             // Item Type
-            RepairAndSalvageItemType salvageItemType = RepairAndSalvageItemType.OTHER;
+            ItemType salvageItemType = ItemType.OTHER;
             String salvageItemTypeString = config.getString("Salvageables." + key + ".ItemType", "OTHER");
 
             if (!config.contains("Salvageables." + key + ".ItemType") && itemMaterial != null) {
                 ItemStack salvageItem = new ItemStack(itemMaterial);
 
                 if (ItemUtils.isMinecraftTool(salvageItem)) {
-                    salvageItemType = RepairAndSalvageItemType.TOOL;
+                    salvageItemType = ItemType.TOOL;
                 }
                 else if (ItemUtils.isArmor(salvageItem)) {
-                    salvageItemType = RepairAndSalvageItemType.ARMOR;
+                    salvageItemType = ItemType.ARMOR;
                 }
             }
             else {
                 try {
-                    salvageItemType = RepairAndSalvageItemType.valueOf(salvageItemTypeString);
+                    salvageItemType = ItemType.valueOf(salvageItemTypeString);
                 }
                 catch (IllegalArgumentException ex) {
                     reason.add(key + " has an invalid ItemType of " + salvageItemTypeString);

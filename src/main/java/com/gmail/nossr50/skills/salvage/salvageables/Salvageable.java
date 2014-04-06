@@ -2,8 +2,8 @@ package com.gmail.nossr50.skills.salvage.salvageables;
 
 import org.bukkit.Material;
 
-import com.gmail.nossr50.datatypes.RepairAndSalvageItemType;
-import com.gmail.nossr50.datatypes.RepairAndSalvageMaterialType;
+import com.gmail.nossr50.datatypes.skills.ItemType;
+import com.gmail.nossr50.datatypes.skills.MaterialType;
 
 public interface Salvageable {
     /**
@@ -32,14 +32,14 @@ public interface Salvageable {
      *
      * @return the RepairItemType for this repairable
      */
-    public RepairAndSalvageItemType getSalvageItemType();
+    public ItemType getSalvageItemType();
 
     /**
      * Gets the RepairMaterialType value for this repairable item
      *
      * @return the RepairMaterialType for this repairable
      */
-    public RepairAndSalvageMaterialType getSalvageMaterialType();
+    public MaterialType getSalvageMaterialType();
 
     /**
      * Gets the minimum quantity of repair materials ignoring all other repair bonuses
