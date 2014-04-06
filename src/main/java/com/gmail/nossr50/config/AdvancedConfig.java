@@ -787,8 +787,8 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
     public boolean getArcaneSalvageEnchantLossEnabled() { return config.getBoolean("Skills.Salvage.ArcaneSalvage.EnchantLossEnabled", true); }
 
     public int getArcaneSalvageRankLevel(Salvage.Tier tier) { return config.getInt("Skills.Salvage.ArcaneSalvage.Rank_Levels.Rank_" + tier.toNumerical()); }
-    public int getArcaneSalvageExtractFullEnchantsChance(Salvage.Tier tier) { return config.getInt("Skills.Salvage.ArcaneSalvage.ExtractFullEnchant.Rank_" + tier.toNumerical()); }
-    public int getArcaneSalvageExtractPartialEnchantsChance(Salvage.Tier tier) { return config.getInt("Skills.Salvage.ArcaneSalvage.ExtractPartialEnchant.Rank_" + tier.toNumerical()); }
+    public double getArcaneSalvageExtractFullEnchantsChance(Salvage.Tier tier) { return config.getDouble("Skills.Salvage.ArcaneSalvage.ExtractFullEnchant.Rank_" + tier.toNumerical()); }
+    public double getArcaneSalvageExtractPartialEnchantsChance(Salvage.Tier tier) { return config.getDouble("Skills.Salvage.ArcaneSalvage.ExtractPartialEnchant.Rank_" + tier.toNumerical()); }
 
     /* SMELTING */
     public int getBurnModifierMaxLevel() { return config.getInt("Skills.Smelting.FuelEfficiency.MaxBonusLevel", 1000); }
