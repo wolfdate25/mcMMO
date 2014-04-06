@@ -63,14 +63,14 @@ public class SalvageCommand extends SkillCommand {
         if (canArcaneSalvage) {
             SalvageManager salvageManager = UserManager.getPlayer(player).getSalvageManager();
 
-            messages.add(LocaleLoader.getString("Salvage.Arcane.Rank", salvageManager.getArcaneSalvageRank(), Salvage.Tier.EIGHT.toNumerical()));
+            messages.add(LocaleLoader.getString("Salvage.Arcane.Rank", salvageManager.getArcaneSalvageRank(), Salvage.Tier.values().length));
 
             if (Salvage.arcaneSalvageEnchantLoss) {
-                messages.add(LocaleLoader.getString("Ability.Generic.Template", LocaleLoader.getString("Salvage.Arcane.ExtractFull"), salvageManager.getExtractFullEnchantChance()));
+                messages.add(LocaleLoader.getString("Ability.Generic.Template", LocaleLoader.getString("Salvage.Arcane.ExtractFull"), percent.format(salvageManager.getExtractFullEnchantChance() / 100)));
             }
 
             if (Salvage.arcaneSalvageDowngrades) {
-                messages.add(LocaleLoader.getString("Ability.Generic.Template", LocaleLoader.getString("Salvage.Arcane.ExtractPartial"), salvageManager.getExtractPartialEnchantChance()));
+                messages.add(LocaleLoader.getString("Ability.Generic.Template", LocaleLoader.getString("Salvage.Arcane.ExtractPartial"), percent.format(salvageManager.getExtractPartialEnchantChance() / 100)));
             }
         }
 
