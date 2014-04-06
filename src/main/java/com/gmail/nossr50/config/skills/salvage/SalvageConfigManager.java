@@ -9,11 +9,9 @@ import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.skills.salvage.salvageables.Salvageable;
 
 public class SalvageConfigManager {
-    private List<Salvageable> salvageables;
+    private final List<Salvageable> salvageables = new ArrayList<Salvageable>();
 
     public SalvageConfigManager(mcMMO plugin) {
-        salvageables = new ArrayList<Salvageable>();
-
         Pattern pattern = Pattern.compile("salvage\\.(?:.+)\\.yml");
         File dataFolder = plugin.getDataFolder();
         File vanilla = new File(dataFolder, "salvage.vanilla.yml");
@@ -34,19 +32,11 @@ public class SalvageConfigManager {
             }
 
             SalvageConfig salvageConfig = new SalvageConfig(fileName);
-            List<Salvageable> sConfigSalvageables = salvageConfig.getLoadedSalvageables();
-
-            if (sConfigSalvageables != null) {
-                salvageables.addAll(sConfigSalvageables);
-            }
+            salvageables.addAll(salvageConfig.getLoadedSalvageables());
         }
     }
 
     public List<Salvageable> getLoadedSalvageables() {
-        if (salvageables == null) {
-            return new ArrayList<Salvageable>();
-        }
-
         return salvageables;
     }
 }
