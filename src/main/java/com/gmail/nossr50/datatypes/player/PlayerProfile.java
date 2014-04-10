@@ -3,6 +3,7 @@ package com.gmail.nossr50.datatypes.player;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.config.Config;
@@ -18,6 +19,7 @@ import com.google.common.collect.ImmutableMap;
 
 public class PlayerProfile {
     private final String playerName;
+    private UUID uuid;
     private boolean loaded;
     private boolean changed;
 
@@ -49,8 +51,9 @@ public class PlayerProfile {
         this.loaded = isLoaded;
     }
 
-    public PlayerProfile(String playerName, Map<SkillType, Integer> levelData, Map<SkillType, Float> xpData, Map<AbilityType, Integer> cooldownData, MobHealthbarType mobHealthbarType) {
+    public PlayerProfile(String playerName, UUID uuid, Map<SkillType, Integer> levelData, Map<SkillType, Float> xpData, Map<AbilityType, Integer> cooldownData, MobHealthbarType mobHealthbarType) {
         this.playerName = playerName;
+        this.uuid = uuid;
         this.mobHealthbarType = mobHealthbarType;
 
         skills.putAll(levelData);
@@ -65,7 +68,7 @@ public class PlayerProfile {
             return;
         }
 
-        changed = !mcMMO.getDatabaseManager().saveUser(new PlayerProfile(playerName, ImmutableMap.copyOf(skills), ImmutableMap.copyOf(skillsXp), ImmutableMap.copyOf(abilityDATS), mobHealthbarType));
+        changed = !mcMMO.getDatabaseManager().saveUser(new PlayerProfile(playerName, uuid, ImmutableMap.copyOf(skills), ImmutableMap.copyOf(skillsXp), ImmutableMap.copyOf(abilityDATS), mobHealthbarType));
 
         if (changed) {
             mcMMO.p.getLogger().warning("PlayerProfile for " + playerName + " failed to save");
@@ -74,6 +77,16 @@ public class PlayerProfile {
 
     public String getPlayerName() {
         return playerName;
+    }
+
+    public UUID getUniqueId() {
+        return uuid;
+    }
+
+    public void setUniqueId(UUID uuid) {
+        changed = true;
+
+        this.uuid = uuid;
     }
 
     public boolean isLoaded() {
