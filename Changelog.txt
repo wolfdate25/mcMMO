@@ -10,6 +10,7 @@ Key:
 Version 1.5.01-dev
  + Added particle effects and sounds to "Call of the Wild" (Taming)
  + Added summon length to "Call of the Wild". Summons will now commit suicide after their lifespan expires
+ + Added feature which makes tamed wolves attack a target shot by the owner
 
 Version 1.5.00
  + Added Podzol & Red Sand to Excavation
